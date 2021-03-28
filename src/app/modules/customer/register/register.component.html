@@ -1,0 +1,57 @@
+<fieldset>
+    <legend>Register Form</legend>
+    <div class="row">
+        <form [formGroup]="fgValidator" class="col s12" id="reg-form">
+            <div class="row">
+                <div class="input-field col s3">
+                    <i class="material-icons prefix">assignment_ind</i>
+                    <input id="document" formControlName="document" type="text">
+                    <label for="document">Document</label>
+                </div>
+                <div class="input-field col s3">
+                    <i class="material-icons prefix">phone</i>
+                    <input id="cellphone" formControlName="phone" type="text">
+                    <label for="cellphone">Cellphone</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">email</i>
+                    <input id="email" formControlName="email" type="text">
+                    <label for="mail">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="first_name" formControlName="name" type="text">
+                    <label for="first_name">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="last_name" formControlName="lastname" type="text">
+                    <label for="last_name">Last Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s4">
+                    <i class="material-icons prefix">map</i>
+                    <input id="city" formControlName="city" type="text">
+                    <label for="city">City</label>
+                </div>
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">add_location</i>
+                    <input id="address" formControlName="address" type="text">
+                    <label for="address">Address</label>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="input-field col s6">
+                    <button (click)="CustomerRegisterFn()" class="btn btn-large btn-register waves-effect waves-light" type="submit"
+                        name="action">Register
+                        <i class="material-icons right">done</i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</fieldset>
