@@ -1,7 +1,9 @@
 export class UserModel {
     id?: String;
-    usermane: String;
-    password: String;
+    username: String;
+    password?: String;
     customerId?: String;
     role?: number;
+    token?: String;
+    isLogged: Boolean = false;
 }

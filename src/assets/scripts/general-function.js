@@ -4,3 +4,9 @@ function showMessage(message) {
     let instance = M.Modal.init(elem, {});
     instance.open();
 }
+
+function showRemoveConfirmationWindow(message) {
+    let elem = document.querySelector('#removeConfirmationModal');
+    let instance = M.Modal.init(elem, {});
+    instance.open();
+}
