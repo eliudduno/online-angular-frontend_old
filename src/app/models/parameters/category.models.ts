@@ -1,4 +1,4 @@
-export class CategoyModel {
+export class CategoryModel {
     id?: String;
     code: String;
     name: String;

@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ServiceConfig } from 'src/app/config/service-config';
-import { CategoyModel } from 'src/app/models/parameters/category.models';
+import { CategoryModel } from 'src/app/models/parameters/category.models';
 import { SecurityService } from '../security.service';
 
 
@@ -18,8 +18,12 @@ export class CategoryService {
   }
 
 
-  getAllRecords(): Observable<CategoyModel[]> {
-    return this.http.get<CategoyModel[]>(`${ServiceConfig.BASE_URL}${this.entity}`);
+  getAllRecords(): Observable<CategoryModel[]> {
+    return this.http.get<CategoryModel[]>(`${ServiceConfig.BASE_URL}${this.entity}`);
+  }
+
+  getRecordsById(id: string): Observable<CategoryModel> {
+    return this.http.get<CategoryModel>(`${ServiceConfig.BASE_URL}${this.entity}/${id}`);
   }
 
   /**
@@ -27,16 +31,17 @@ export class CategoryService {
    * @param record 
    * @returns 
    */
-  saveNewRecord(record: CategoyModel): Observable<CategoyModel> {
-    return this.http.post<CategoyModel>(`${ServiceConfig.BASE_URL}${this.entity}`, record, {
+  saveNewRecord(record: CategoryModel): Observable<CategoryModel> {
+    return this.http.post<CategoryModel>(`${ServiceConfig.BASE_URL}${this.entity}`, record, {
       headers: new HttpHeaders({
+        'Content-type': 'application/json',
         Authorization: `Bearer ${this.token}`
       })
     });
   }
 
-  EditRecord(record: CategoyModel): Observable<CategoyModel> {
-    return this.http.put<CategoyModel>(`${ServiceConfig.BASE_URL}${this.entity}`, record, {
+  EditRecord(record: CategoryModel): Observable<CategoryModel> {
+    return this.http.put<CategoryModel>(`${ServiceConfig.BASE_URL}${this.entity}/${record.id}`, record, {
       headers: new HttpHeaders({
         Authorization: `Bearer ${this.token}`
       })
@@ -44,7 +49,7 @@ export class CategoryService {
   }
 
   DeleteRecord(recordId: String): Observable<any> {
-    return this.http.delete<CategoyModel>(`${ServiceConfig.BASE_URL}${this.entity}/${recordId}`, {
+    return this.http.delete<CategoryModel>(`${ServiceConfig.BASE_URL}${this.entity}/${recordId}`, {
       headers: new HttpHeaders({
         Authorization: `Bearer ${this.token}`
       })
