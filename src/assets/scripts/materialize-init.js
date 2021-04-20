@@ -5,3 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
         inDuration: 100
     });
 });
+
+function initSelect() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, {});
+
+}

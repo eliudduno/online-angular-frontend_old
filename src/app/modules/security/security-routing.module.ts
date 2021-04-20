@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UnauthenticatedGuard } from 'src/app/guards/unauthenticated.guard';
+import { AuthenticatedGuard } from 'src/app/guards/authenticated.guard';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -9,19 +11,23 @@ const routes: Routes = [
   //**Creando rutas */
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [UnauthenticatedGuard]
   },
   {
     path: 'logout',
-    component: LogoutComponent
+    component: LogoutComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
-    path:'reset',
-    component: PasswordResetComponent
+    path: 'reset',
+    component: PasswordResetComponent,
+    canActivate: [UnauthenticatedGuard]
   },
   {
-    path:'change-password',
-    component: ChangePasswordComponent
+    path: 'change-password',
+    component: ChangePasswordComponent,
+    canActivate: [AuthenticatedGuard]
   }
 ];
 

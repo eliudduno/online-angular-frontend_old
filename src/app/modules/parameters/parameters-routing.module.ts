@@ -31,7 +31,7 @@ const routes: Routes = [
     component: BrandListComponent,
   },
   {
-    path: 'brand-edition',
+    path: 'brand-edition/:id',
     component: BrandEditionComponent,
   }
 ];
